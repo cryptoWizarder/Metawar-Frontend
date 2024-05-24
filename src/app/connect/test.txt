@@ -1,0 +1,15 @@
+const { Web3 } = require("web3");
+const web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-mumbai.g.alchemy.com/v2/aF1XzHuNP-jzrRwlRneJZaCNc8A3PMZf"));
+const fs = require('fs');
+
+const walletGeneration = async () => {
+    console.log("Calling");
+    var contract_address = "0xF541FF5F364c0b72A52AE8072D2851D24e402dC3";
+    var contract_jsonFile = "./xbuff_betting.json";
+    var contract_parsed = JSON.parse(fs.readFileSync(contract_jsonFile));
+    var contract_abi = contract_parsed.abi;
+    var contract_router = new web3.eth.Contract(contract_abi, web3.utils.toChecksumAddress(contract_address));
+
+    const roundInformation = await contract_router.methods.getAvailableRound().call();
+    console.log("roundInformation ===", roundInformation)
+}

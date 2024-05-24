@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #051D27;
+  color: #fff;
+}
+
+
+.hero-section {
+  background-image: url(/hero.png);
+}
+
+.clip-right {
+  clip-path: polygon(calc(100% - 10px) calc(100% - 24px), 100% calc(100% - 26px), 100% 100%, 0 100%, 0 calc(100% - 32px));
+}
+
+
+
+@keyframes blink {
+  0% {
+    opacity: 0%;
+  }
+  
+  20% {
+    opacity: 30%;
+  }
+  
+  30% {
+    opacity: 20%;
+  }
+
+  35% {
+    opacity: 50%;
+  }
+
+  40% {
+    opacity: 20%;
+  }
+
+  45% {
+    opacity: 70%;
+  }
+
+  50% {
+    opacity: 50%;
+  }
+
+  70% {
+    opacity: 80%;
+  }
+
+  100% {
+    tranform: scale(1);
+    fill: green;
+  }
+}
+
+.animate-fill {
+  transition: all;
+}
+
+.animate-fill:hover {
+  transition: all;
+  animation: blink 1s ease-in forwards;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* .react-datepicker__triangle:before {
+  background-color: rgb(0 0 0 / 0.3);
+} */
